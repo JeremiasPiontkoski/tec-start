@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,14 +37,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'knox',
     'api',
-    'home'
+    'home',
+    'news',
+    'location',
+    'users',
+    'call',
+    'city',
+    'donation',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
