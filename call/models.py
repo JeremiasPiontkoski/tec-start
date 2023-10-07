@@ -6,3 +6,6 @@ class Call(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='calls')
     cpf = models.CharField(max_length=20)
     person_name = models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return self.person_name
